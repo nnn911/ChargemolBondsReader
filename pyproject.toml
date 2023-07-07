@@ -9,7 +9,7 @@ description = "OVITO Python file reader for the DDEC analysis output written by 
 keywords = ["ovito", "python-file-reader"]
 authors = [{name = "Daniel Utt", email = "utt@ovito.org"}]
 maintainers = [{name = "Daniel Utt", email = "utt@ovito.org"}]
-license = {text = "[[License]]"}
+license = {text = "MIT License"}
 readme = "README.md"
 requires-python = ">=3.7"
 dependencies = [
@@ -17,7 +17,7 @@ dependencies = [
 ]
 
 [project.urls]
-repository = "[[Repository Link]]"
+repository = "https://github.com/nnn911/ChargemolBondsReader"
 
 [project.entry-points.'OVITO.FileReader']
 "Chargemol Bonds Reader" = "ChargemolBondsReader:ChargemolBondsReader"

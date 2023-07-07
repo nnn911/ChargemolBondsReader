@@ -28,11 +28,11 @@ already containing the correct CONTCAR structure file.
 ## Installation
 - OVITO PRO built-in Python interpreter
 ```
-ovitos -m pip install --user git+[[Repository Link]].git
+ovitos -m pip install --user git+https://github.com/nnn911/ChargemolBondsReader.git
 ``` 
 - Standalone Python package or Conda environment
 ```
-pip install --user git+[[Repository Link]].git
+pip install --user git+https://github.com/nnn911/ChargemolBondsReader.git
 ```
 - Please note that the `--user` tag is recommended but optional and depends on your Python installation.
 
