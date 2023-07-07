@@ -1,16 +1,44 @@
-# Python File Reader Template
+# Chargemol Bonds Reader
+OVITO Python file reader for the DDEC analysis output written by chargemol.
 
-Template for a custom Python-based file reader that hooks into *OVITO* and can easily be shared with other users.
+## Description
+Python file reader for *OVITO* that reads the *bond topology* from a DDEC chargemol analysis. To use
+it you first need to load the particles from a CONTCAR, POSCAR, or XDATCAR file. Afterwards, you can
+read the bonds topology file using the  [*load trajectory modifier*](https://www.ovito.org/docs/current/reference/pipelines/modifiers/load_trajectory.html#particles-modifiers-load-trajectory).   
+Note, that this file reader will only produce correct results if the chargemol file was calculated
+based on the structure initally loaded into OVITO. 
+This file reader currently only reads the bond topology and bond order from the chargemol file.
 
-This repository contains a template for creating your own [Python file reader](https://ovito.org/docs/dev/python/introduction/custom_file_readers.html), which can be installed into *OVITO Pro* or the [`ovito`](https://pypi.org/project/ovito/) Python module using *pip*.
+## Parameters
+- `lowerCutoff` / "Lower cutoff": Defines a lower cutoff value for the bond order. All bonds below this
+  threshold will not be imported by the bonds reader. If it is set to `None` no lower cutoff will be
+  applied. Defaults to `None`.
+- `upperCutoff` / "Upper cutoff": Defines an upper cutoff value for the bond order. All bonds above this
+  threshold will not be imported by the bonds reader. If it is set to `None` no upper cutoff will be
+  applied. Defaults to `None`.
 
-## Getting Started
+## Example
+The following image shows this file reader used in a *load trajectory modifier* in the *OVITO PRO*
+desktop application. The lower cutoff parameter is set to 0.3, while the upper cutoff value is set
+to `None`. Therefore, all bonds above a bond order value of 0.3 are loaded and added to scene
+already containing the correct CONTCAR structure file.
+![Example 01](Examples/example_01.png)
 
-1. Click the "Use this template" button to create your own repository based on this template.
-2. Rename `src/FileReaderName` to reflect the name of your modifier.
-3. Implement your [file reader](https://ovito.org/docs/dev/python/introduction/custom_file_readers.html) in [`src/FileReaderName/__init__.py`](src/FileReaderName/__init__.py). Fill in the predefined functions as needed. More details on this interface can be found in the [OVITO Python docs](https://ovito.org/docs/dev/python/modules/ovito_io.html#ovito.io.FileReaderInterface). 
-4. Fill in the [`pyproject.toml`](pyproject.toml) file. Fields that need to be replaced with your information are enclosed in descriptive `[[field]]` tags. Please make sure to include ovito>=3.9 as a dependency. Depending on your needs, you can add additional fields to the `pyproject.toml` file. Information can be found [here](https://setuptools.pypa.io/en/latest/userguide/index.html).
-5. Fill in the [`README_Template.md`](README_Template.md) file. Again, the `[[fields]]` placeholders should guide you. Feel free to add other sections like "Images", "Citation", or "References" as needed.
-6. Add meaningful examples and data sample files to the `Examples` directory to help others understand the use of your modifier.
-7. Pick a license for your project and replace the current (MIT) [`LICENSE`](LICENSE) file with your license. If you keep the MIT license, please update the name and year in the current file.
-8. Once you're done, rename `README_Template.md` to `README.md`, replacing this file.
+
+## Installation
+- OVITO PRO built-in Python interpreter
+```
+ovitos -m pip install --user git+[[Repository Link]].git
+``` 
+- Standalone Python package or Conda environment
+```
+pip install --user git+[[Repository Link]].git
+```
+- Please note that the `--user` tag is recommended but optional and depends on your Python installation.
+
+## Technical information / dependencies
+- Tested on OVITO version 3.9.0
+- Chargemol version 3.5
+
+## Contact
+- Daniel Utt (utt@ovito.org)

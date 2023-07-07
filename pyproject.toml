@@ -3,26 +3,24 @@ requires = ["setuptools", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "[[FileReaderName]]"
-version = "[[Version number]]"
-description = "[[Short description]]"
+name = "ChargemolBondsReader"
+version = "2023.1"
+description = "OVITO Python file reader for the DDEC analysis output written by chargemol."
 keywords = ["ovito", "python-file-reader"]
-authors = [{name = "[[Author 1 name]]", email = "[[Author 1 email]]"}, {name = "[[Author 2 name]]", email = "[[Author 2 email]]"}]
-maintainers = [{name = "[[Maintainer 1 name]]", email = "[[Maintainer 1 email]]"}, {name = "[[Maintainer 2 name]]", email = "[[Maintainer 2 email]]"}]
+authors = [{name = "Daniel Utt", email = "utt@ovito.org"}]
+maintainers = [{name = "Daniel Utt", email = "utt@ovito.org"}]
 license = {text = "[[License]]"}
 readme = "README.md"
-requires-python = "[[>=3.7]]"
+requires-python = ">=3.7"
 dependencies = [
-    "ovito >= [[VersionNumber]]", # OVITO must be >=3.9!
-    # "[[dependency1]]",
-    # "[[dependency2 == Version]]",
+    "ovito >= 3.9.0"
 ]
 
 [project.urls]
 repository = "[[Repository Link]]"
 
 [project.entry-points.'OVITO.FileReader']
-"[[Human readable file reader name]]" = "[[FileReaderName]]:[[FileReaderName]]"
+"Chargemol Bonds Reader" = "ChargemolBondsReader:ChargemolBondsReader"
 
 [tool.setuptools.packages.find]
 where = ["src"]
