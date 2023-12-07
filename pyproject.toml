@@ -17,7 +17,7 @@ dependencies = [
 ]
 
 [project.urls]
-repository = "https://github.com/nnn911/ChargemolBondsReader"
+repository = "https://github.com/ovito-org/ChargemolBondsReader"
 
 [project.entry-points.'OVITO.FileReader']
 "Chargemol Bonds Reader" = "ChargemolBondsReader:ChargemolBondsReader"
